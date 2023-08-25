@@ -65,3 +65,10 @@ To configure QEMU, run below, either on host, or the running container.
 ```shell
 ./configure_qemu.sh
 ```
+
+## Rosetta
+```
+$ apptainer build nvidia-20.04.sif docker://pinkyswear/nvidia-sdkmanager:20.04
+$ apptainer shell --bind /run/user/1000:/run/user/1000 nvidia-20.04.sif
+$ sdkmanager
+```
