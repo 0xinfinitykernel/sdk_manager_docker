@@ -66,8 +66,18 @@ To configure QEMU, run below, either on host, or the running container.
 ./configure_qemu.sh
 ```
 
-## Rosetta
+## Rosetta (Kali OS)
 ```
+# Add Source
+$ sudo echo "deb http://ppa.launchpad.net/apptainer/ppa/ubuntu focal main" | sudo tee -a /etc/apt/sources.list
+$ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AFE36534FC6218AE
+
+# Install apptainer package
+$ sudo apt update
+$ sudo apt install -y apptainer-suid
+
+# Run apptainer
+docker pull --platform linux/amd64 x11vnc/docker-desktop:20.04
 $ apptainer build nvidia-20.04.sif docker://pinkyswear/nvidia-sdkmanager:20.04
 $ apptainer shell --bind /run/user/1000:/run/user/1000 nvidia-20.04.sif
 $ sdkmanager
