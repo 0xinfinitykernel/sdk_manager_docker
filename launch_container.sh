@@ -10,6 +10,8 @@ mkdir -p jetpack_home/Downloads
 JETPACK_HOME=$(realpath ./jetpack_home)
 
 docker run --privileged --rm -it \
+           --name nvidia \
+           --platform linux/amd64 \
            --volume=$XSOCK:$XSOCK:rw \
            --volume=$XAUTH:$XAUTH:rw \
            --volume=/dev:/dev:rw \
@@ -22,4 +24,5 @@ docker run --privileged --rm -it \
            --env=QT_X11_NO_MITSHM=1 \
            --net=host \
            -u "jetpack"  \
-           jetpack:latest
+           pinkyswear/nvidia-sdkmanager:20.04 \
+           bash -c "sdkmanager; tail -f /dev/null"

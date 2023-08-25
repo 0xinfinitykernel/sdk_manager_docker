@@ -80,4 +80,5 @@ RUN rm /home/${USERNAME}/${SDK_MANAGER_DEB}
 # configure QEMU to fix https://forums.developer.nvidia.com/t/nvidia-sdk-manager-on-docker-container/76156/18
 # And, I refered to https://github.com/MiroPsota/sdkmanagerGUI_docker
 # COPY --chown=jetpack:jetpack configure_qemu.sh /home/${USERNAME}/
-ENTRYPOINT ["/bin/bash", "-c", "sdkmanager"]
+# ENTRYPOINT ["/bin/bash", "-c", "sdkmanager"]
+CMD ["sdkmanager"]
