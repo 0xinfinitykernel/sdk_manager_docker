@@ -52,6 +52,7 @@ RUN yes | unminimize && \
         net-tools \
         python \
         binfmt-support \
+        chromium-browser \
         sshpass \
         sudo \
         libdrm2 \
